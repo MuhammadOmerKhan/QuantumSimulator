@@ -59,7 +59,7 @@ namespace QuantumTeleportation
 }
 ```
 ## Teleport Class
-The Teleport class extends the Quantum.Intrinsic.CNOT class and implements the Run method, which takes a QuantumSimulator object and an initial state as input and returns the teleported state as output.
+The Teleport class implements the Run method, which takes a QuantumSimulator object and an initial state as input and returns the teleported state as output.
 
 ```csharp
 using System;
@@ -69,11 +69,12 @@ using Microsoft.Quantum.Simulation.Simulators;
 
 namespace QuantumTeleportation
 {
-    class Teleport : Quantum.Intrinsic.CNOT
+    class Teleport
     {
-        static public Task<Result> Run(QuantumSimulator qsim, Result initial)
+        public static Task<Result> Run(QuantumSimulator qsim, Result initial)
         {
-            return Apply(qsim, initial, initial);
+            // Perform your teleportation algorithm here
+            return Task.FromResult(initial);
         }
     }
 }
